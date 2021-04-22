@@ -39,6 +39,7 @@ spec:
         istio.io/rev: default
         operator.istio.io/component: Pilot
     spec:
+      #### new init container
       initContainers:
       - name: istio-vault-init-container
         image: lgadban/istio-vault-init-container:latest
@@ -170,6 +171,7 @@ spec:
               audience: istio-ca
               expirationSeconds: 43200
               path: istio-token
+      #### change cacerts volume to tmpfs
       - name: cacerts
         emptyDir:
           medium: Memory
